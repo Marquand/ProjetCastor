@@ -1,0 +1,7 @@
+gestion_frais:
+    resource: "@GestionFraisBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
