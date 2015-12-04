@@ -1,0 +1,47 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>FicheFrais list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Idvisiteur</th>
+                <th>Mois</th>
+                <th>Idetatfichefrais</th>
+                <th>Montantvalide</th>
+                <th>Datemodif</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('fichefrais_show', { 'id': entity.idVisiteur }) }}">{{ entity.idVisiteur }}</a></td>
+                <td>{{ entity.mois }}</td>
+                <td>{{ entity.idEtatFicheFrais }}</td>
+                <td>{{ entity.montantValide }}</td>
+                <td>{% if entity.dateModif %}{{ entity.dateModif|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('fichefrais_show', { 'id': entity.idVisiteur }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('fichefrais_edit', { 'id': entity.idVisiteur }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('fichefrais_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

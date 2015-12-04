@@ -5,3 +5,26 @@ gestion_frais:
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+gestion_frais_fichefrais:
+    resource: "@GestionFraisBundle/Resources/config/routing/fichefrais.yml"
+    prefix:   /fichefrais
+
+gestion_frais_fraisforfait:
+    resource: "@GestionFraisBundle/Resources/config/routing/fraisforfait.yml"
+    prefix:   /fraisforfait
+
+gestion_frais_etatlignefrais:
+    resource: "@GestionFraisBundle/Resources/config/routing/etatlignefrais.yml"
+    prefix:   /etatlignefrais
+
+gestion_frais_etatfichefrais:
+    resource: "@GestionFraisBundle/Resources/config/routing/etatfichefrais.yml"
+    prefix:   /etatfichefrais
+
+gestion_frais_visiteur:
+    resource: "@GestionFraisBundle/Resources/config/routing/visiteur.yml"
+    prefix:   /visiteur

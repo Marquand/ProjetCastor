@@ -3,6 +3,7 @@
 namespace GestionFraisBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * Visiteur
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="GestionFraisBundle\Entity\VisiteurRepository")
  */
-class Visiteur
+class Visiteur extends BaseUser
 {
     /**
      * @var integer
@@ -19,7 +20,7 @@ class Visiteur
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -34,20 +35,6 @@ class Visiteur
      * @ORM\Column(name="prenom", type="string", length=255)
      */
     private $prenom;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="login", type="string", length=255)
-     */
-    private $login;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="password", type="string", length=255)
-     */
-    private $password;
 
     /**
      * @var string
@@ -70,12 +57,6 @@ class Visiteur
      */
     private $ville;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="typeUtilisateur", type="string", length=255)
-     */
-    private $typeUtilisateur;
 
 
     /**
@@ -134,54 +115,6 @@ class Visiteur
     public function getPrenom()
     {
         return $this->prenom;
-    }
-
-    /**
-     * Set login
-     *
-     * @param string $login
-     *
-     * @return Visiteur
-     */
-    public function setLogin($login)
-    {
-        $this->login = $login;
-
-        return $this;
-    }
-
-    /**
-     * Get login
-     *
-     * @return string
-     */
-    public function getLogin()
-    {
-        return $this->login;
-    }
-
-    /**
-     * Set password
-     *
-     * @param string $password
-     *
-     * @return Visiteur
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * Get password
-     *
-     * @return string
-     */
-    public function getPassword()
-    {
-        return $this->password;
     }
 
     /**
@@ -254,30 +187,6 @@ class Visiteur
     public function getVille()
     {
         return $this->ville;
-    }
-
-    /**
-     * Set typeUtilisateur
-     *
-     * @param string $typeUtilisateur
-     *
-     * @return Visiteur
-     */
-    public function setTypeUtilisateur($typeUtilisateur)
-    {
-        $this->typeUtilisateur = $typeUtilisateur;
-
-        return $this;
-    }
-
-    /**
-     * Get typeUtilisateur
-     *
-     * @return string
-     */
-    public function getTypeUtilisateur()
-    {
-        return $this->typeUtilisateur;
     }
 }
 

@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>FicheFrais</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Idvisiteur</th>
+                <td>{{ entity.idVisiteur }}</td>
+            </tr>
+            <tr>
+                <th>Mois</th>
+                <td>{{ entity.mois }}</td>
+            </tr>
+            <tr>
+                <th>Idetatfichefrais</th>
+                <td>{{ entity.idEtatFicheFrais }}</td>
+            </tr>
+            <tr>
+                <th>Montantvalide</th>
+                <td>{{ entity.montantValide }}</td>
+            </tr>
+            <tr>
+                <th>Datemodif</th>
+                <td>{{ entity.dateModif|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('fichefrais') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('fichefrais_edit', { 'id': entity.idVisiteur }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

@@ -38,7 +38,17 @@
         <div class=" col-sm-offset-0 col-sm-2 col-xs-12"><img src="{{ asset('Images/logo_gsb.png') }}" id='logo'></div>
         <div class=" col-sm-offset-1 col-sm-8 col-xs-12"><h1 class="title" > Gestion des frais de visite </h1></div>
     </div>
+    <a href="{{ path('fraisforfait') }}" >Frais Forfait</a>
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+        <a href="{{ path('fos_user_security_logout') }}">
+            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+        </a>
+        {{  app.user.ville}}
 
+    {% else %}
+        <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+    {% endif %}
 
     </div>
 </header>
