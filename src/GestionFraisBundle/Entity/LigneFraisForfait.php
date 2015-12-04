@@ -12,33 +12,40 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class LigneFraisForfait
 {
+
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
-    /**
-     * @var string
      *
-     * @ORM\Column(name="idVisiteur", type="string", length=255)
+     * @ORM\Column(name="idVisiteur", type="integer")
+     *
+     * @ORM\OneToOne(targetEntity="Fichefrais")
+     * @ORM\JoinColumn(name="$idVisiteur", referencedColumnName="idVisiteur")
      */
     private $idVisiteur;
 
     /**
-     * @var \DateTime
+     * @var \string
      *
-     * @ORM\Column(name="mois", type="date")
+     * @ORM\Id
+     *
+     * @ORM\Column(name="mois", type="string", length=6)
+     *
+     * @ORM\OneToOne(targetEntity="Fichefrais")
+     * @ORM\JoinColumn(name="$mois", referencedColumnName="mois")
      */
     private $mois;
 
     /**
      * @var integer
      *
+     * @ORM\Id
+     *
      * @ORM\Column(name="idFraisForfait", type="integer")
+     *
+     * @ORM\ManyToOne(targetEntity="FraisForfait")
+     * @ORM\JoinColumn(name="$id", referencedColumnName="id")
      */
     private $idFraisForfait;
 
@@ -53,24 +60,16 @@ class LigneFraisForfait
      * @var integer
      *
      * @ORM\Column(name="idEtatLigneFrais", type="integer")
+     *
+     * @ORM\ManyToOne(targetEntity="EtatLigneFrais")
+     * @ORM\JoinColumn(name="$id", referencedColumnName="id")
      */
     private $idEtatLigneFrais;
-
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set idVisiteur
      *
-     * @param string $idVisiteur
+     * @param integer $idVisiteur
      *
      * @return LigneFraisForfait
      */
@@ -84,7 +83,7 @@ class LigneFraisForfait
     /**
      * Get idVisiteur
      *
-     * @return string
+     * @return integer
      */
     public function getIdVisiteur()
     {
@@ -94,7 +93,7 @@ class LigneFraisForfait
     /**
      * Set mois
      *
-     * @param \DateTime $mois
+     * @param \string $mois
      *
      * @return LigneFraisForfait
      */
@@ -108,7 +107,7 @@ class LigneFraisForfait
     /**
      * Get mois
      *
-     * @return \DateTime
+     * @return \string
      */
     public function getMois()
     {

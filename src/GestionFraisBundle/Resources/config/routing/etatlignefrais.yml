@@ -1,0 +1,30 @@
+etatlignefrais:
+    path:     /
+    defaults: { _controller: "GestionFraisBundle:EtatLigneFrais:index" }
+
+etatlignefrais_show:
+    path:     /{id}/show
+    defaults: { _controller: "GestionFraisBundle:EtatLigneFrais:show" }
+
+etatlignefrais_new:
+    path:     /new
+    defaults: { _controller: "GestionFraisBundle:EtatLigneFrais:new" }
+
+etatlignefrais_create:
+    path:     /create
+    defaults: { _controller: "GestionFraisBundle:EtatLigneFrais:create" }
+    methods:  POST
+
+etatlignefrais_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "GestionFraisBundle:EtatLigneFrais:edit" }
+
+etatlignefrais_update:
+    path:     /{id}/update
+    defaults: { _controller: "GestionFraisBundle:EtatLigneFrais:update" }
+    methods:  [POST, PUT]
+
+etatlignefrais_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "GestionFraisBundle:EtatLigneFrais:delete" }
+    methods:  [POST, DELETE]

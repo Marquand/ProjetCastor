@@ -12,26 +12,37 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class LigneFraisHorsForfait
 {
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
 
     /**
      * @var integer
      *
+     * @ORM\Id
+     *
+     * @ORM\Column(name="num", type="integer")
+     */
+    private $num;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Id
+     *
      * @ORM\Column(name="idVisiteur", type="integer")
+     *
+     * @ORM\OneToOne(targetEntity="Fichefrais")
+     * @ORM\JoinColumn(name="$idVisiteur", referencedColumnName="idVisiteur")
      */
     private $idVisiteur;
 
     /**
-     * @var \DateTime
+     * @var \string
      *
-     * @ORM\Column(name="mois", type="date")
+     * @ORM\Id
+     *
+     * @ORM\Column(name="mois", type="string", length=6)
+     *
+     * @ORM\OneToOne(targetEntity="Fichefrais")
+     * @ORM\JoinColumn(name="$mois", referencedColumnName="mois")
      */
     private $mois;
 
@@ -39,6 +50,9 @@ class LigneFraisHorsForfait
      * @var integer
      *
      * @ORM\Column(name="idEtatLigneFrais", type="integer")
+     *
+     * @ORM\ManyToOne(targetEntity="EtatLigneFrais")
+     * @ORM\JoinColumn(name="$id", referencedColumnName="id")
      */
     private $idEtatLigneFrais;
 
@@ -63,15 +77,28 @@ class LigneFraisHorsForfait
      */
     private $libelleLigneHorsForfait;
 
+    /**
+     * Set num
+     *
+     * @param integer $num
+     *
+     * @return LigneFraisHorsForfait
+     */
+    public function setNum($num)
+    {
+        $this->num = $num;
+
+        return $this;
+    }
 
     /**
-     * Get id
+     * Get num
      *
      * @return integer
      */
-    public function getId()
+    public function getNum()
     {
-        return $this->id;
+        return $this->num;
     }
 
     /**
@@ -101,7 +128,7 @@ class LigneFraisHorsForfait
     /**
      * Set mois
      *
-     * @param \DateTime $mois
+     * @param \string $mois
      *
      * @return LigneFraisHorsForfait
      */
@@ -115,7 +142,7 @@ class LigneFraisHorsForfait
     /**
      * Get mois
      *
-     * @return \DateTime
+     * @return \string
      */
     public function getMois()
     {

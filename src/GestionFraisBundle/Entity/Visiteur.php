@@ -57,9 +57,9 @@ class Visiteur
     private $adresse;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="cp", type="integer")
+     * @ORM\Column(name="cp", type="string", length=5)
      */
     private $cp;
 
@@ -211,7 +211,7 @@ class Visiteur
     /**
      * Set cp
      *
-     * @param integer $cp
+     * @param string $cp
      *
      * @return Visiteur
      */
@@ -225,7 +225,7 @@ class Visiteur
     /**
      * Get cp
      *
-     * @return integer
+     * @return string
      */
     public function getCp()
     {

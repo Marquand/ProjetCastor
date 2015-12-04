@@ -1,0 +1,3 @@
+fichefrais_consulter:
+    path:     /{mois}/show
+    defaults: { _controller: "GestionFraisBundle:FicheFrais:consulterFiche" }

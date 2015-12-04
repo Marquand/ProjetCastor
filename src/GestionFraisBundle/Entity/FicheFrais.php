@@ -12,26 +12,25 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class FicheFrais
 {
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
 
     /**
      * @var integer
      *
+     * @ORM\Id
+     *
      * @ORM\Column(name="idVisiteur", type="integer")
+     * @ORM\ManyToOne(targetEntity="Visiteur")
+     * @ORM\JoinColumn(name="$id", referencedColumnName="id")
      */
     private $idVisiteur;
 
     /**
-     * @var \DateTime
+     * @var \string
      *
-     * @ORM\Column(name="mois", type="date")
+     * @ORM\Id
+     *
+     * @ORM\Column(name="mois", type="string", length=6)
+     *
      */
     private $mois;
 
@@ -39,6 +38,10 @@ class FicheFrais
      * @var integer
      *
      * @ORM\Column(name="idEtatFicheFrais", type="integer")
+     * @ORM\ManyToOne(targetEntity="EtatFicheFrais")
+     * @ORM\JoinColumn(name="$id", referencedColumnName="id")
+     *
+     *
      */
     private $idEtatFicheFrais;
 
@@ -55,24 +58,6 @@ class FicheFrais
      * @ORM\Column(name="dateModif", type="datetime")
      */
     private $dateModif;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="nbJustificatif", type="integer")
-     */
-    private $nbJustificatif;
-
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set idVisiteur
@@ -101,7 +86,7 @@ class FicheFrais
     /**
      * Set mois
      *
-     * @param \DateTime $mois
+     * @param \string $mois
      *
      * @return FicheFrais
      */
@@ -115,7 +100,7 @@ class FicheFrais
     /**
      * Get mois
      *
-     * @return \DateTime
+     * @return \string
      */
     public function getMois()
     {

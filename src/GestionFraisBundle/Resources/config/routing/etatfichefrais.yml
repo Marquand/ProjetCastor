@@ -1,0 +1,30 @@
+etatfichefrais:
+    path:     /
+    defaults: { _controller: "GestionFraisBundle:EtatFicheFrais:index" }
+
+etatfichefrais_show:
+    path:     /{id}/show
+    defaults: { _controller: "GestionFraisBundle:EtatFicheFrais:show" }
+
+etatfichefrais_new:
+    path:     /new
+    defaults: { _controller: "GestionFraisBundle:EtatFicheFrais:new" }
+
+etatfichefrais_create:
+    path:     /create
+    defaults: { _controller: "GestionFraisBundle:EtatFicheFrais:create" }
+    methods:  POST
+
+etatfichefrais_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "GestionFraisBundle:EtatFicheFrais:edit" }
+
+etatfichefrais_update:
+    path:     /{id}/update
+    defaults: { _controller: "GestionFraisBundle:EtatFicheFrais:update" }
+    methods:  [POST, PUT]
+
+etatfichefrais_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "GestionFraisBundle:EtatFicheFrais:delete" }
+    methods:  [POST, DELETE]

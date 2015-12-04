@@ -1,0 +1,30 @@
+visiteur:
+    path:     /
+    defaults: { _controller: "GestionFraisBundle:Visiteur:index" }
+
+visiteur_show:
+    path:     /{id}/show
+    defaults: { _controller: "GestionFraisBundle:Visiteur:show" }
+
+visiteur_new:
+    path:     /new
+    defaults: { _controller: "GestionFraisBundle:Visiteur:new" }
+
+visiteur_create:
+    path:     /create
+    defaults: { _controller: "GestionFraisBundle:Visiteur:create" }
+    methods:  POST
+
+visiteur_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "GestionFraisBundle:Visiteur:edit" }
+
+visiteur_update:
+    path:     /{id}/update
+    defaults: { _controller: "GestionFraisBundle:Visiteur:update" }
+    methods:  [POST, PUT]
+
+visiteur_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "GestionFraisBundle:Visiteur:delete" }
+    methods:  [POST, DELETE]
