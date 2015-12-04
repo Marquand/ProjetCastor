@@ -3,6 +3,7 @@
 namespace GestionFraisBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * Visiteur
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="GestionFraisBundle\Entity\VisiteurRepository")
  */
-class Visiteur
+class Visiteur extends BaseUser
 {
     /**
      * @var integer
@@ -19,7 +20,7 @@ class Visiteur
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
