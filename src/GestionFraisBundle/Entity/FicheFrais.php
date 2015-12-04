@@ -27,7 +27,6 @@ class FicheFrais
     /**
      * @var \string
      *
-     * @ORM\Id
      *
      * @ORM\Column(name="mois", type="string", length=6)
      *
